@@ -1,0 +1,37 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/temperatura/{unidadAConvertir}": {
+      "post": {
+        "description": "Conversion de Grados Celsius a Fahrenheit y Viceversa. Es necesario enviar un JSON que contenga el valor y la unidad original de la temperatura",
+        "parameters": [
+          {
+            "name": "unidadAConvertir",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "CELSIUS o FAHRENHEIT"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Se regresa un JSON con el valor y la unidad de la temperatura convertida"
+          },
+          "400": {
+            "description": "El valor o la unidad de la temperatura original es invalido o la unidad a convertir es invalida"
+          }
+        }
+      }
+    }
+  }
+}
